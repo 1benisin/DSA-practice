@@ -13,14 +13,16 @@ const twoSum = function(nums, target) {
   }
 
   for (let j = 0; j < nums.length; j++) {
-    if(hMap.has(target-nums[j])){
-      return [j, hMap.get(target-nums[j])]
+    let fitIndex = hMap.get(target-nums[j]);
+
+    if(fitIndex && fitIndex !== j){
+      return [j, fitIndex];
     }
   }
 };
 
 
 // TEST
-let nums = [2, 7, 11, 15];
-let target = 13;
+let nums = [3, 2, 4, 15];
+let target = 6;
 console.log(twoSum(nums, target)); // [ 0, 2 ]
