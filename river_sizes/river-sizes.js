@@ -1,6 +1,6 @@
 'use strict'
 
-// O(n) time | O(1) space
+// O(n)+n time | O(1) space
 function riverSizes(matrix) {
   let rivers = [];
   for (let y = 0; y < matrix.length; y++) {
