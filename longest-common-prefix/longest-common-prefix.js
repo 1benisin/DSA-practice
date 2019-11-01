@@ -54,6 +54,31 @@ const betterLCP = function (strs) {
   }
 };
 
+/**
+ * O(n)time - number of strings * common prefix  | O(N) space
+ * loop through recursively and find longestCommonPrefix of just 2 strings at a time
+* @param {string[]} strs
+* @return {string}
+*/
+const betterBetterLCP = function (strs) {
+     //Error handling - handle empty arrays 
+     if(strs.length === 0) return "";
+ 
+     const sortedStrs = strs.concat().sort();        //copy strs to a new array (concat) then sort it (sort)
+     const ray1 = sortedStrs[0];                      //first subarray index starts at sortedStrs's start (its first string)
+     const ray2 = sortedStrs[sortedStrs.length-1];   //second subarray index starts at sortedstrs's second element (its second string)
+     let a = 0;                                      //loop counter
+ 
+     //LOOP: while the loop counter is less than ray1's legnth and the character at position a is the same for ray1 and ray2
+     while(a < ray1.length && ray1.charAt(a) === ray2.charAt(a))
+     {
+         a++;
+     }
+     return ray1.substring(0, a); //return
+};
+
+
+
 
 // TESTS
 console.log('result fl = ', longestCommonPrefix(["flower", "flow", "flight"])) // "fl"
@@ -71,3 +96,13 @@ console.log('result  = ', betterLCP([""])) // ""
 console.log('result a = ', betterLCP(["a"])) // ""
 console.log('result  = ', betterLCP(["", ""])) // ""
 console.log('result c = ', betterLCP(["c", "c"])) // ""
+
+console.log('result fl = ', betterBetterLCP(["flower", "flow", "flight"])) // "fl"
+console.log('result  = ', betterBetterLCP(["dog", "racecar", "car"])) // ""
+console.log('result  = ', betterBetterLCP([])) // ""
+console.log('result  = ', betterBetterLCP([""])) // ""
+console.log('result a = ', betterBetterLCP(["a"])) // ""
+console.log('result  = ', betterBetterLCP(["", ""])) // ""
+console.log('result c = ', betterBetterLCP(["c", "c"])) // ""
+
+
