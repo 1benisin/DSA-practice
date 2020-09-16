@@ -8,6 +8,11 @@ function CodelandUsernameValidation(str) {
 }
 
 // keep this function call here
+// output:
+//   true
+//   false
+//   false
+//   false
 console.log(CodelandUsernameValidation('Pass444_dd'));
 console.log(CodelandUsernameValidation('Pass$44_dd'));
 console.log(CodelandUsernameValidation('Pass444_dd_'));
